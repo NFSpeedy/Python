@@ -99,9 +99,24 @@ while True:
         elif text[char] == "ѝ":
             LatText = LatText + "i"
             char+=1
+        elif text[char] == " ":
+            LatText = LatText + "-"
+            char+=1
+        elif text[char] == "\"":
+            char+=1
+        elif text[char] == ",":
+            char+=1
+        elif text[char] == ".":
+            char+=1
+        elif text[char] == ":":
+            char+=1
+        elif text[char] == ";":
+            char+=1
         else:
-            print("Unknown char.")
+            print("Unnown char.")
             break
     else:
+        print("Job's done!")
         break
+    print(str(int((char/len(text))*100))+"%")
 print(LatText)
