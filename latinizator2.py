@@ -22,49 +22,54 @@ def printProgressBar (iteration, total, prefix = '', suffix = '', decimals = 1, 
     if iteration == total:
         print()
 
-text = input("Your text in Cyrillic: ")
-char=0
-OtherChar=0
-text = text.lower()
-LatText=""
-UnknownChars=[]
-UnknownCharsStr=""
-while True:
-    Cyrillic = [" ", "а", "б", "в", "г", "д", "е", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ѝ", "ь", "ю", "я", ".", ",", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "-", "_", "%", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "$"]
-    ToBe = ["-", "a", "b", "v", "g", "d", "e", "j", "z", "i", "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "h", "c", "ch", "sh", "sht", "y", "x", "x", "iu", "q", "-", "-", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "-", "_", "%", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "$"]
-    if (len(text)-1) >= char:
-        testing=""
-        if OtherChar > 74:
-            if len(UnknownChars) == 0:
-                UnknownChars.append(text[char])
+def Latinizator2 (text):
+    char=0
+    OtherChar=0
+    text = text.lower()
+    LatText=""
+    UnknownChars=[]
+    UnknownCharsStr=""
+    while True:
+        Cyrillic = [" ", "а", "б", "в", "г", "д", "е", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ѝ", "ь", "ю", "я", ".", ",", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "-", "_", "%", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "$"]
+        ToBe = ["-", "a", "b", "v", "g", "d", "e", "j", "z", "i", "i", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u", "f", "h", "c", "ch", "sh", "sht", "y", "x", "x", "iu", "q", "-", "-", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "-", "_", "%", "+", "=", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "$"]
+        if (len(text)-1) >= char:
+            testing=""
+            if OtherChar > 74:
+                if len(UnknownChars) == 0:
+                    UnknownChars.append(text[char])
+                    char+=1
+                    OtherChar = 0
+                else:
+                    testing = text[char]
+                    print(testing)
+                    for item in UnknownChars:
+                        if item != testing:
+                            UnknownChars.append(testing)
+                            char+=1
+                            OtherChar = 0
+                        else:
+                            char+=1
+                            OtherChar = 0
+            elif text[char] == Cyrillic[OtherChar] and OtherChar <= len(Cyrillic):
+                LatText += ToBe[OtherChar]
                 char+=1
                 OtherChar = 0
             else:
-                testing = text[char]
-                print(testing)
-                for item in UnknownChars:
-                    if item != testing:
-                        UnknownChars.append(testing)
-                        char+=1
-                        OtherChar = 0
-                    else:
-                        char+=1
-                        OtherChar = 0
-        elif text[char] == Cyrillic[OtherChar] and OtherChar <= len(Cyrillic):
-            LatText += ToBe[OtherChar]
-            char+=1
-            OtherChar = 0
+                OtherChar+=1
         else:
-            OtherChar+=1
-    else:
-        break
-    printProgressBar(char, len(text), prefix="Progress: ", suffix="done.", length=20)
-print(LatText)
-if len(UnknownChars) > 0:
-    for MissingSymbol in UnknownChars:
-        print(MissingSymbol)
-        if len(UnknownCharsStr) == 0:
-            UnknownCharsStr = UnknownCharsStr + MissingSymbol
-        else:
-            UnknownCharsStr = UnknownCharsStr + ", " + MissingSymbol
-    print("!!!NOTICE!!!: There are some unknown symbols: " + UnknownCharsStr + "\nYou can edit the source code and add them or contact the author at atanas.stoev3@gmail.com. You can fork the source code from https://github.com/NFSpeedy/Python. The add-n is called Latinizator 2.")
+            break
+        sleep(0.001)
+        printProgressBar(char, len(text), prefix="Progress: ", suffix="done.", length=20)
+    print(LatText)
+    if len(UnknownChars) > 0:
+        for MissingSymbol in UnknownChars:
+            print(MissingSymbol)
+            if len(UnknownCharsStr) == 0:
+                UnknownCharsStr = UnknownCharsStr + MissingSymbol
+            else:
+                UnknownCharsStr = UnknownCharsStr + ", " + MissingSymbol
+        print("!!!NOTICE!!!: There are some unknown symbols: " + UnknownCharsStr + "\nYou can edit the source code and add them or contact the author at atanas.stoev3@gmail.com. You can fork the source code from https://github.com/NFSpeedy/Python. The add-n is called Latinizator 2.")
+
+
+text = input("Your text in Cyrillic: ")
+Latinizator2(text)
