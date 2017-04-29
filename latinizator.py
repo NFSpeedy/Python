@@ -102,6 +102,6 @@ while True:
         else:
             print("Unknown char.")
             break
-        print(LatText)
     else:
         break
+print(LatText)
