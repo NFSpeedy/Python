@@ -3,8 +3,8 @@ Some small python files
 
 ---------------------------------------------------------
 
- Game.py - Rock, paper, scissors
-<br>Game1.py - This is the tale of the flaming sword
-<br>latinizator.py - Small functiuon that translates cyrillic to latin
+ <b>Game.py</b> - Rock, paper, scissors
+<br><b>Game1.py</b> - This is the tale of the flaming sword /unfinished, currently I am not working on that/
+<br><b>latinizator.py</b> - Small functiuon that translates cyrillic to latin
 
 ---------------------------------------------------------
