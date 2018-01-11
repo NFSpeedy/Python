@@ -2,7 +2,11 @@
 Some small python files
 
 ---------------------------------------------------------
-
+# RNN - Shairi
+<i>rnn.py</i><br><br> RNN that generates language models in cyrillic and latin (comments in bulgarian)<hr><br>
+<i>rnn-out.py</i><br><br> RNN that generates text in cyrillic and latin (comments in bulgarian)<hr><br>
+<i>source.txt</i><br><br> Small example data from 1izrechenie.com (in bulgarian)<hr><br>
+<i>sourcebig.txt</i><br><br> Big example data from 1izrechenie.com (in bulgarian)<hr><br>
 # Rock, paper, scissors
 <i>Game.py</i><br><br> The classic game. Used: Python 2.7
 # The tale of the flaming sword
